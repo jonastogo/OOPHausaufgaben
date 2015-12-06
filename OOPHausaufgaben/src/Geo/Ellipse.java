@@ -3,12 +3,16 @@ package Geo;
 import java.io.Serializable;
 
 public class Ellipse extends Primitive implements Serializable {
-	private Point	Mittelpunkt;
-	private Double	Halbachse1;
-	private Double	Halbachse2;
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+	private Point				Mittelpunkt;
+	private Double				Halbachse1;
+	private Double				Halbachse2;
 
 	public Ellipse(int x, int y, double ha1, double ha2) {
-		this.Mittelpunkt = new Point(x, y);
+		this.setMittelpunkt(new Point(x, y));
 		this.Halbachse1 = ha1;
 		this.Halbachse2 = ha2;
 		this.corner = false;
@@ -25,6 +29,14 @@ public class Ellipse extends Primitive implements Serializable {
 	}
 
 	public String toString() {
-		return (String) ("Typ:\tEllipse,\tFlï¿½cheninhalt:\t" + berechneFlaeche() + ",\tUmfang:\t" + berechneUmfang());
+		return (String) ("Typ:\tEllipse,\tFlächeninhalt:\t" + berechneFlaeche() + ",\tUmfang:\t" + berechneUmfang());
+	}
+
+	public Point getMittelpunkt() {
+		return Mittelpunkt;
+	}
+
+	public void setMittelpunkt(Point mittelpunkt) {
+		Mittelpunkt = mittelpunkt;
 	}
 }

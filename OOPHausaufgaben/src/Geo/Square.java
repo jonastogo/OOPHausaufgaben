@@ -3,11 +3,15 @@ package Geo;
 import java.io.Serializable;
 
 public class Square extends Primitive implements Serializable {
-	private Point	Startpunkt;
-	private Double	Laenge;
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+	private Point				Startpunkt;
+	private Double				Laenge;
 
 	public Square(int x, int y, double l) {
-		this.Startpunkt = new Point(x, y);
+		this.setStartpunkt(new Point(x, y));
 		this.Laenge = l;
 		this.corner = true;
 	}
@@ -23,7 +27,15 @@ public class Square extends Primitive implements Serializable {
 	}
 
 	public String toString() {
-		return (String) ("Typ:\tQuadrat,\tFlï¿½cheninhalt:\t" + berechneFlaeche() + ",\tUmfang:\t" + berechneUmfang());
+		return (String) ("Typ:\tQuadrat,\tFlächeninhalt:\t" + berechneFlaeche() + ",\tUmfang:\t" + berechneUmfang());
+	}
+
+	public Point getStartpunkt() {
+		return Startpunkt;
+	}
+
+	public void setStartpunkt(Point startpunkt) {
+		Startpunkt = startpunkt;
 	}
 
 }

@@ -3,11 +3,16 @@ package Geo;
 import java.io.Serializable;
 
 public class Circle extends Primitive implements Serializable {
-	private Point	Mittelpunkt;
-	private Double	Radius;
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+
+	private Point				Mittelpunkt;
+	private Double				Radius;
 
 	public Circle(int x, int y, double r) {
-		this.Mittelpunkt = new Point(x, y);
+		this.setMittelpunkt(new Point(x, y));
 		this.Radius = r;
 		this.corner = false;
 	}
@@ -23,6 +28,14 @@ public class Circle extends Primitive implements Serializable {
 	}
 
 	public String toString() {
-		return (String) ("Typ:\tKreis,\t\tFlï¿½cheninhalt:\t" + berechneFlaeche() + ",\tUmfang:\t" + berechneUmfang());
+		return (String) ("Typ:\tKreis,\t\tFlächeninhalt:\t" + berechneFlaeche() + ",\tUmfang:\t" + berechneUmfang());
+	}
+
+	public Point getMittelpunkt() {
+		return Mittelpunkt;
+	}
+
+	public void setMittelpunkt(Point mittelpunkt) {
+		Mittelpunkt = mittelpunkt;
 	}
 }

@@ -6,35 +6,23 @@ public class cListPrimitives extends ListPrimitives {
 
 	public cListPrimitives(int max) {
 		super(max);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void delfromList(Primitive p) {
-		for (int i = 0; i < this.getMaxsize(); i++) {
-			if (counter < getMaxsize()) {
-				if (Liste[i] == p) {
-					Liste[i] = null;
-				}
-			} else {
-				Liste[i] = null; // alten Eintrag l�schen
-				Liste[i] = new Rectangle(5, 5, 85, 10);// und neuen hinzuf�gen
-				break;
-			}
-		}
+		Liste.remove(p);
 	}
 
 	@Override
 	public void addtoList(Primitive p) throws WrongArgumentException {
 		if (p == null) {
 			throw new WrongArgumentException();
-		} else if (counter >= getMaxsize()) {
+		} else if (counter >= this.getMaxSize()) {
 			System.out.println("Die Liste ist voll.");
 		} else if (p.corner == true) {
-			Liste[counter++] = p;
+			Liste.add(p);
 		} else
 			throw new NoRoundObjectException();
-		// System.out.println("Hinzuf�gen erfolgreich!");//Debug
 	}
 
 	public static void main(String[] args) {

@@ -10,27 +10,17 @@ public class rListPrimitives extends ListPrimitives {
 
 	@Override
 	public void delfromList(Primitive p) {
-		for (int i = 0; i < this.getMaxsize(); i++) {
-			if (counter < getMaxsize()) {
-				if (Liste[i] == p) {
-					Liste[i] = null;
-				}
-			} else {
-				Liste[i] = null; // alten Eintrag löschen
-				Liste[i] = new Circle(1, 1, 1);// und neuen hinzufügen
-				break;
-			}
-		}
+		Liste.remove(p);
 	}
 
 	@Override
 	public void addtoList(Primitive p) throws WrongArgumentException {
 		if (p == null) {
 			throw new WrongArgumentException();
-		} else if (counter >= getMaxsize()) {
+		} else if (counter >= this.getMaxSize()) {
 			System.out.println("Die Liste ist voll.");
 		} else if (p.corner == false) {
-			Liste[counter++] = p;
+			Liste.add(p);
 		} else
 			throw new NoRoundObjectException();
 		// System.out.println("Hinzufügen erfolgreich!");//Debug

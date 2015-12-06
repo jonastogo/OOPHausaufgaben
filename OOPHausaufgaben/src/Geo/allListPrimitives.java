@@ -2,9 +2,13 @@ package Geo;
 
 public class allListPrimitives extends ListPrimitives {
 
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+
 	public allListPrimitives(int max) {
 		super(max);
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) {
@@ -12,11 +16,12 @@ public class allListPrimitives extends ListPrimitives {
 		lp1.load("SaveList");
 		if (b) {
 			Circle c1 = new Circle(1, 1, 5);
+			Circle c3 = null;
+			Circle c4 = new Circle(1, 2, 4);
 			Square s1 = new Square(3, 5, 80);
 			Rectangle r1 = new Rectangle(5, 5, 88, 10);
 			Ellipse e1 = new Ellipse(5, 5, 3, 8);
-			Circle c3 = null;
-			Circle c4 = new Circle(1, 2, 4);
+
 			// Liste erstellen
 			// Primitive zur Liste hinzufï¿½gen
 			try {
@@ -29,18 +34,21 @@ public class allListPrimitives extends ListPrimitives {
 					e2.printStackTrace();
 				}
 			}
+			// lp1.printList(lp1.Liste);
 			try {
 				lp1.addtoList(s1);
 			} catch (WrongArgumentException e) {
 
 				e.printStackTrace();
 			}
+			// lp1.printList(lp1.Liste);
 			try {
 				lp1.addtoList(r1);
 			} catch (WrongArgumentException e) {
 
 				e.printStackTrace();
 			}
+			// lp1.printList(lp1.Liste);
 			try {
 				lp1.addtoList(e1);
 			} catch (WrongArgumentException e) {
@@ -48,7 +56,7 @@ public class allListPrimitives extends ListPrimitives {
 				e.printStackTrace();
 			}
 			// Volle Liste ausgeben
-			lp1.printList(lp1.Liste);
+			// lp1.printList(lp1.Liste);
 			// Voller Liste etwas hinzufï¿½gen
 			lp1.delfromList(c1);
 			try {
@@ -60,7 +68,7 @@ public class allListPrimitives extends ListPrimitives {
 
 			System.out.println("\n### Sortierung ###");
 			lp1.printList(lp1.Liste);
-			System.out.println("\nSortierung nach Flï¿½che:");
+			System.out.println("\nSortierung nach Fläche:");
 			lp1.sortFlaeche();
 			lp1.printList(lp1.Liste);
 			System.out.println("\nSortierung nach Umfang:");
@@ -72,27 +80,14 @@ public class allListPrimitives extends ListPrimitives {
 			System.out.println("\nNeu geladene Liste:");
 			lp1.load("SaveList");
 		}
-		lp1.printList(lp1.Liste);
-		try {
-			System.out.println(lp1.getByIndex(0));
-		} catch (MyArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
-		}
-		try {
-			System.out.println(lp1.getByIndex(1));
-		} catch (MyArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
-		}
-		try {
-			System.out.println(lp1.getByIndex(2));
-		} catch (MyArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
-		}
-		try {
-			System.out.println(lp1.getByIndex(3));
-		} catch (MyArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
-		}
+		// lp1.printList(lp1.Liste);
+		for (int i = 0; i < 4; i++)
+			try {
+				System.out.println(String.format("Listen eintrag [%d]:{ %s }", i, lp1.getByIndex(i).toString()));
+				System.out.println(String.format("Listen eintrag [%d]:{ %s }", i, lp1.getByIndex(i).toClassString()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 	}
 
 }

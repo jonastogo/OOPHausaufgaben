@@ -74,7 +74,8 @@ public class KfZ {
 					kfz.remove(gesucht);
 				}
 			}
-		}
+		} else
+			System.out.println("\n" + landkreis + " war nie vorhanden!");
 	}
 
 }

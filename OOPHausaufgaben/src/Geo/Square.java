@@ -37,5 +37,4 @@ public class Square extends Primitive implements Serializable {
 	public void setStartpunkt(Point startpunkt) {
 		Startpunkt = startpunkt;
 	}
-
 }

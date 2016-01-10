@@ -7,23 +7,6 @@ import java.util.GregorianCalendar;
 
 public class Liste {
 
-	public class PersonComparatorName implements Comparator<Person> {
-		public int compare(Person p1, Person p2) {
-			String obj1 = p1.getName();
-			String obj2 = p2.getName();
-			if (obj1 == obj2) {
-				return 0;
-			}
-			if (obj1 == null) {
-				return -1;
-			}
-			if (obj2 == null) {
-				return 1;
-			}
-			return obj1.compareTo(obj2);
-		}
-	}
-
 	public class PersonComparatorSpitz implements Comparator<Person> {
 		@Override
 		public int compare(Person p1, Person p2) {
@@ -82,20 +65,91 @@ public class Liste {
 
 	}
 
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public void sortName() {
-		Collections.sort(list, new PersonComparatorName());
+		Collections.sort(list, new Comparator() {
+			@Override
+			public int compare(Object p1, Object p2) {
+				String obj1 = (String) ((Person) p1).getName();
+				String obj2 = (String) ((Person) p2).getName();
+				if (obj1 == obj2) {
+					return 0;
+				}
+				if (obj1 == null) {
+					return -1;
+				}
+				if (obj2 == null) {
+					return 1;
+				}
+				return obj1.compareTo(obj2);
+			}
+		});
 	}
 
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public void sortSpitz() {
-		Collections.sort(list, new PersonComparatorSpitz());
+		Collections.sort(list, new Comparator() {
+			@Override
+			public int compare(Object p1, Object p2) {
+				String obj1 = (String) ((Person) p1).getSpitzname();
+				String obj2 = (String) ((Person) p2).getSpitzname();
+				if (obj1 == obj2) {
+					return 0;
+				}
+				if (obj1 == null) {
+					return -1;
+				}
+				if (obj2 == null) {
+					return 1;
+				}
+				return obj1.compareTo(obj2);
+			}
+		});
 	}
 
+	@SuppressWarnings({
+			"rawtypes", "unchecked"
+	})
 	public void sortTele() {
-		Collections.sort(list, new PersonComparatorTele());
+		Collections.sort(list, new Comparator() {
+			@Override
+			public int compare(Object p1, Object p2) {
+				String obj1 = (String) ((Person) p1).getTelefonnummer();
+				String obj2 = (String) ((Person) p2).getTelefonnummer();
+				if (obj1 == obj2) {
+					return 0;
+				}
+				if (obj1 == null) {
+					return -1;
+				}
+				if (obj2 == null) {
+					return 1;
+				}
+				return obj1.compareTo(obj2);
+			}
+		});
 	}
 
+	@SuppressWarnings({
+			"rawtypes", "unchecked"
+	})
 	public void sortBirthday() {
-		Collections.sort(list, new PersonComparatorDate());
+		Collections.sort(list, new Comparator() {
+			@Override
+			public int compare(Object p1, Object p2) {
+				GregorianCalendar x = (GregorianCalendar) ((Person) p1).getBirthday();
+				GregorianCalendar y = (GregorianCalendar) ((Person) p2).getBirthday();
+				if (x.before(y))
+					return -1;
+				if (x.after(y))
+					return 1;
+				return 0;
+			}
+		});
 	}
 
 	public void printListe() {

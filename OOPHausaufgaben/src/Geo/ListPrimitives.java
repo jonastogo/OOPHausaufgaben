@@ -11,38 +11,8 @@ import java.util.Comparator;
 
 public class ListPrimitives implements Serializable {
 
-	public class PrimitiveComperatorUmfang implements Comparator<Primitive> {
-		@Override
-		public int compare(Primitive o1, Primitive o2) {
-			double u1 = o1.berechneUmfang();
-			double u2 = o2.berechneUmfang();
-			if (u1 > u2) {
-				return 1;
-			}
-			if (u2 > u1) {
-				return -1;
-			}
-			return 0;
-		}
-	}
-
-	public class PrimitiveComperatorFlaeche implements Comparator<Primitive> {
-		@Override
-		public int compare(Primitive o1, Primitive o2) {
-			double u1 = o1.berechneFlaeche();
-			double u2 = o2.berechneFlaeche();
-			if (u1 > u2) {
-				return -1;
-			}
-			if (u2 > u1) {
-				return 1;
-			}
-			return 0;
-		}
-	}
-
 	private static final long	serialVersionUID	= 8528951252002450815L;
-	/*
+	/**
 	 * Programmieren Sie eine Klasse ListPrimitives, die in einem Array eine konstante Anzahl an Primitiven Speichern kann.
 	 * Diese Klasse hat Methoden um ein nach Umfang und Fl�cheninhalt sortiertes Array zur�ckzugeben. Au�erdem enth�lt
 	 * sie Methoden zum hinzuf�gen und entfernen eines Listenelements. Wenn aus dem vollen Array ein Element gel�scht
@@ -70,46 +40,44 @@ public class ListPrimitives implements Serializable {
 		this.counter = 0;
 	}
 
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public void sortUmfang() {
-		Collections.sort(Liste, new PrimitiveComperatorUmfang());
-		/*
-		 * int n = Liste.size();
-		 * boolean swapped;
-		 * do {
-		 * swapped = false;
-		 * for (int i = 0; i < (retMaxIndex() - 1); ++i) {
-		 * if (Liste.get(i).berechneUmfang() > Liste.get(i + 1).berechneUmfang()) {
-		 * // Dreieckstausch
-		 * Primitive z = Liste.get(i);
-		 * Liste.set(i, Liste.get(i + 1));
-		 * Liste.set(i, z);
-		 * swapped = true;
-		 * } // end if
-		 * } // end for
-		 * n = n - 1;
-		 * } while (swapped == true);
-		 */
+		Collections.sort(Liste, new Comparator() {
+			@Override
+			public int compare(Object o1, Object o2) {
+				double u1 = (double) ((Primitive) o1).berechneUmfang();
+				double u2 = (double) ((Primitive) o2).berechneUmfang();
+				if (u1 > u2) {
+					return 1;
+				}
+				if (u2 > u1) {
+					return -1;
+				}
+				return 0;
+			}
+		});
 	}
 
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public void sortFlaeche() {
-		Collections.sort(Liste, new PrimitiveComperatorFlaeche());
-		/*
-		 * int n = Liste.size();
-		 * boolean swapped;
-		 * do {
-		 * swapped = false;
-		 * for (int i = 0; i < (retMaxIndex() - 1); ++i) {
-		 * if (Liste.get(i).berechneFlaeche() > Liste.get(i + 1).berechneFlaeche()) {
-		 * // Dreieckstausch
-		 * Primitive z = Liste.get(i);
-		 * Liste.set(i, Liste.get(i + 1));
-		 * Liste.set(i, z);
-		 * swapped = true;
-		 * } // end if
-		 * } // end for
-		 * n = n - 1;
-		 * } while (swapped == true);
-		 */
+		Collections.sort(Liste, new Comparator() {
+			@Override
+			public int compare(Object o1, Object o2) {
+				double u1 = (double) ((Primitive) o1).berechneFlaeche();
+				double u2 = (double) ((Primitive) o2).berechneFlaeche();
+				if (u1 > u2) {
+					return -1;
+				}
+				if (u2 > u1) {
+					return 1;
+				}
+				return 0;
+			}
+		});
 	}
 
 	public void addtoList(Primitive p) throws WrongArgumentException {

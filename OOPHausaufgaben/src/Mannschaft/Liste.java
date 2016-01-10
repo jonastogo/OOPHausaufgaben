@@ -7,55 +7,6 @@ import java.util.GregorianCalendar;
 
 public class Liste {
 
-	public class PersonComparatorSpitz implements Comparator<Person> {
-		@Override
-		public int compare(Person p1, Person p2) {
-			String obj1 = p1.getSpitzname();
-			String obj2 = p2.getSpitzname();
-			if (obj1 == obj2) {
-				return 0;
-			}
-			if (obj1 == null) {
-				return -1;
-			}
-			if (obj2 == null) {
-				return 1;
-			}
-			return obj1.compareTo(obj2);
-		}
-	}
-
-	public class PersonComparatorTele implements Comparator<Person> {
-		@Override
-		public int compare(Person p1, Person p2) {
-			String obj1 = p1.getTelefonnummer();
-			String obj2 = p2.getTelefonnummer();
-			if (obj1 == obj2) {
-				return 0;
-			}
-			if (obj1 == null) {
-				return -1;
-			}
-			if (obj2 == null) {
-				return 1;
-			}
-			return obj1.compareTo(obj2);
-		}
-	}
-
-	public class PersonComparatorDate implements Comparator<Person> {
-
-		public int compare(Person p1, Person p2) {
-			GregorianCalendar x = p1.getBirthday();
-			GregorianCalendar y = p2.getBirthday();
-			if (x.before(y))
-				return -1;
-			if (x.after(y))
-				return 1;
-			return 0;
-		}
-	}
-
 	ArrayList<Person>	list	= new ArrayList<Person>();
 
 	public Liste() {

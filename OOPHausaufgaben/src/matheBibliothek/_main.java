@@ -1,4 +1,6 @@
-package matheBibliothek;
+package OOPHausaufgaben.src.matheBibliothek;
+
+import OOPHausaufgaben.src.matheBibliothek.Bibliothek;
 
 public class _main {
 

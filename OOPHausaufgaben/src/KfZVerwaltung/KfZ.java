@@ -1,4 +1,4 @@
-package KfZVerwaltung;
+package OOPHausaufgaben.src.KfZVerwaltung;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,9 +14,9 @@ public class KfZ {
 		addLandkreis("MI", "Minden");
 		addLandkreis("HF", "Herford");
 		print();
-		System.out.println("Zum Landkreis Herford gehört das Kürzel: " + sucheLandkreis("Herford"));
+		System.out.println("Zum Landkreis Herford gehoert das Kuerzel: " + sucheLandkreis("Herford"));
 		System.out.println();
-		System.out.println("Zum Kürzel BI gehört der Landkreis: " + sucheKFZKürzel("BI"));
+		System.out.println("Zum Kuerzel BI gehoert der Landkreis: " + sucheKFZKuerzel("BI"));
 		removeLandkreis("Herford");
 		print();
 		System.out.println();
@@ -24,12 +24,12 @@ public class KfZ {
 		print();
 	}
 
-	public static String sucheKFZKürzel(String kürzel) {
+	public static String sucheKFZKuerzel(String kuerzel) {
 		Set set = kfz.entrySet();
 		Iterator it = set.iterator();
 		while (it.hasNext()) {
 			Map.Entry me = (Map.Entry) it.next();
-			if (me.getKey().equals(kürzel))
+			if (me.getKey().equals(kuerzel))
 				return me.getValue().toString();
 		}
 		return null;
@@ -57,12 +57,12 @@ public class KfZ {
 		}
 	}
 
-	public static void addLandkreis(String kürzel, String landkreis) {
-		if (sucheLandkreis(landkreis) == null && sucheKFZKürzel(kürzel) == null) {
-			kfz.put(kürzel, landkreis);
-			System.out.println("Hinzugefügt wurde: Key: " + kürzel + " & Value: " + landkreis);
+	public static void addLandkreis(String kuerzel, String landkreis) {
+		if (sucheLandkreis(landkreis) == null && sucheKFZKuerzel(kuerzel) == null) {
+			kfz.put(kuerzel, landkreis);
+			System.out.println("Hinzugefuegt wurde: Key: " + kuerzel + " & Value: " + landkreis);
 		} else
-			System.out.println("\nDer Landkreis " + landkreis + "(" + kürzel + ") ist bereits enthalten!");
+			System.out.println("\nDer Landkreis " + landkreis + "(" + kuerzel + ") ist bereits enthalten!");
 
 	}
 

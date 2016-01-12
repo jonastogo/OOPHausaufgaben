@@ -1,5 +1,3 @@
-package staticclass;
-
 public class Calculator {
 
 	private Operation	operation;
@@ -47,6 +45,6 @@ public class Calculator {
  * 
  * In diesem Fall ist es egal ob die geschachtelte Klasse statisch oder nicht ist.
  * 
- * Geschachtelte Klassen werden benutzt wenn sie nur in der umschließenden Klasse benötigt werden.
- * Wenn sie auch in anderen Klassen benätigt wird, muss eine neue Top-Level Klasse erstellt werden.
+ * Geschachtelte Klassen werden benutzt wenn sie nur in der umschlieï¿½enden Klasse benï¿½tigt werden.
+ * Wenn sie auch in anderen Klassen benï¿½tigt wird, muss eine neue Top-Level Klasse erstellt werden.
  */

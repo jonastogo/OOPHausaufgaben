@@ -1,4 +1,4 @@
-package matheBibliothek;
+package OOPHausaufgaben.src.matheBibliothek;
 
 public class Bibliothek {
 

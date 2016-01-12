@@ -1,4 +1,4 @@
-package math;
+package OOPHausaufgaben.src.math;;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

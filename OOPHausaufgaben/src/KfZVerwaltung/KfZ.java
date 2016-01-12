@@ -1,4 +1,4 @@
-package OOPHausaufgaben.src.KfZVerwaltung;
+package KfZVerwaltung;
 
 import java.util.HashMap;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package OOPHausaufgaben.src.Mannschaft;
+package Mannschaft;
 
 import java.util.ArrayList;
 import java.util.Collections;

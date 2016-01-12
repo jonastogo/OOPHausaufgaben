@@ -1,12 +1,12 @@
-package OOPHausaufgaben.src.math;;
+package math;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
 public class Bib {
-	public static final int MAX = 25;
-	
+	public static final int	MAX	= 25;
+
 	public static void sort(final int array[]) {
 		int size = array.length;
 		int swap = 0;
@@ -24,22 +24,21 @@ public class Bib {
 			size--;
 		} while (swapped);
 	}
-	
-	public static int[] subArray(int []array ,int from, int to) {
+
+	public static int[] subArray(int[] array, int from, int to) {
 		int[] retVal;
-		if (array== null || from > array.length || to > array.length) {
+		if (array == null || from > array.length || to > array.length) {
 			return null;
-		} 
-		
+		}
+
 		retVal = new int[to];
-		int j=0;
-		for(int i=from; i<to; i++) {
+		int j = 0;
+		for (int i = from; i < to; i++) {
 			retVal[j++] = array[i];
 		}
-		
+
 		return retVal;
 	}
-	
 
 	public static void sortWithOutput(final int array[]) {
 		int size = array.length;
@@ -49,7 +48,7 @@ public class Bib {
 			swapped = false;
 			for (int i = 0; i < size - 1; ++i) {
 				if (array[i] > array[i + 1]) {
-					System.out.print(array[i]+","+array[i+1]+"; " );
+					System.out.print(array[i] + "," + array[i + 1] + "; ");
 					swap = array[i];
 					array[i] = array[i + 1];
 					array[i + 1] = swap;
@@ -92,8 +91,7 @@ public class Bib {
 		}
 		int size = array.length;
 		if (array.length % 2 == 0) {
-			System.out.println("unterer Median: " + array[size / 2 - 1]
-					+ "  oberer Median: " + array[size / 2]);
+			System.out.println("unterer Median: " + array[size / 2 - 1] + "  oberer Median: " + array[size / 2]);
 			median = (array[size / 2 - 1] + array[size / 2]);
 			median /= 2;
 		} else {
@@ -104,19 +102,19 @@ public class Bib {
 
 	public static double getOberesQuartil(final int array[]) {
 		sort(array);
-		return getMedian(subArray(array, array.length/2, array.length-1));
+		return getMedian(subArray(array, array.length / 2, array.length - 1));
 	}
 
 	public static double getUnteresQuartil(final int array[]) {
 		sort(array);
 		if (array.length % 2 == 0) {
-			int to = (array.length/2) -1 ;
-			return getMedian(subArray(array, 0,( to)));
+			int to = (array.length / 2) - 1;
+			return getMedian(subArray(array, 0, (to)));
 		} else {
-			int to = (array.length/2);
-			return getMedian(subArray(array, 0,( to)));
+			int to = (array.length / 2);
+			return getMedian(subArray(array, 0, (to)));
 		}
-		
+
 	}
 
 	public static void main(String[] args) {
@@ -126,22 +124,22 @@ public class Bib {
 			array[i] = rnd.nextInt(MAX);
 		}
 
-//		printArray(array);
-//		System.out.println("Sortiert:");
-//		sort(array);
-//		printArray(array);
-//		System.out.println("Average: "+getAverage(array));
-//		System.out.println("Median: " + getMedian(array));
-//		System.out.println("Median: ");
-//		System.out.println("Median: ");
+		// printArray(array);
+		// System.out.println("Sortiert:");
+		// sort(array);
+		// printArray(array);
+		// System.out.println("Average: "+getAverage(array));
+		// System.out.println("Median: " + getMedian(array));
+		// System.out.println("Median: ");
+		// System.out.println("Median: ");
 
-		int array2[] = { 22, 24, 20, 17, 10, 23, 4, 9, 19, 10, 17, 21, 01, 16,
-				19, 5, 0, 20, 1, 6, 14, 18, 20, 2, 1 };
+		int array2[] = {
+				22, 24, 20, 17, 10, 23, 4, 9, 19, 10, 17, 21, 01, 16, 19, 5, 0, 20, 1, 6, 14, 18, 20, 2, 1
+		};
 		printArray(array2);
 		sort(array2);
-		System.out.println("oberes Quartil: "+Bib.getOberesQuartil(array2));
-		System.out.println("oberes Quartil: "+Bib.getUnteresQuartil(array2));
-		
+		System.out.println("oberes Quartil: " + Bib.getOberesQuartil(array2));
+		System.out.println("oberes Quartil: " + Bib.getUnteresQuartil(array2));
 
 	}
 

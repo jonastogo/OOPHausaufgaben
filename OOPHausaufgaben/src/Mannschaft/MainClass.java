@@ -1,4 +1,4 @@
-package OOPHausaufgaben.src.Mannschaft;
+package Mannschaft;
 
 public class MainClass {
 	public static void main(String[] args) {

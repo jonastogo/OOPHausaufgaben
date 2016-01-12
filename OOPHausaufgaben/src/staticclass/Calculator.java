@@ -1,3 +1,5 @@
+package staticclass;
+
 public class Calculator {
 
 	private Operation	operation;

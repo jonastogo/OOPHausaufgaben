@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
@@ -20,25 +21,36 @@ import javax.swing.JToggleButton;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.SoftBevelBorder;
+import javax.swing.text.Document;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
 
 public class ChatServer extends Observable implements ActionListener {
 
 	private JPanel					contentPane;
 	private JTextField				txtUsername;
-	JEditorPane						editorPane;
-	JToggleButton					red;
-	JToggleButton					purple;
-	JToggleButton					blue;
-	JToggleButton					cyan;
-	JToggleButton					green;
-	JToggleButton					neongreen;
-	JToggleButton					yellow;
-	JToggleButton					orange;
-	JToggleButton					brown;
-	JToggleButton					black;
+	private JEditorPane				editorPane;
+	private JToggleButton			red;
+	private JToggleButton			purple;
+	private JToggleButton			blue;
+	private JToggleButton			cyan;
+	private JToggleButton			green;
+	private JToggleButton			neongreen;
+	private JToggleButton			yellow;
+	private JToggleButton			orange;
+	private JToggleButton			brown;
+	private JToggleButton			black;
 	private JButton					addUser;
 	private ArrayList<ChatClient>	clients;
-	JToggleButton[]					tbtn;
+	Document						doc;
+	StyleSheet						styleSheet;
+	HTMLEditorKit					kit;
+	private ImageIcon				smile, sad, angry, cry, bsmile, cool, nerd, ohh, strich, zunge, zwinker;
+	private JToggleButton[]			tbtn;
+	final String					SMILE		= ":)", SAD = ":(", ANGRY = ":@", CRY = ";(", BSMILE = ":D", COOL = "8)", NERD = ":8", OHH = ":O", STRICH = ":|", ZUNGE = ":P", ZWINKER = ";)";
+	private String[]				emoticons	= {
+			SMILE, SAD, ANGRY, CRY, BSMILE, COOL, NERD, OHH, STRICH, ZUNGE, ZWINKER
+												};
 
 	/**
 	 * Launch the application.
@@ -83,6 +95,18 @@ public class ChatServer extends Observable implements ActionListener {
 		black = new JToggleButton("");
 		tbtn[9] = black;
 
+		smile = new ImageIcon("smile.jpg");
+		sad = new ImageIcon("sad.jpg");
+		angry = new ImageIcon("angry.jpg");
+		cry = new ImageIcon("cry.jpg");
+		bsmile = new ImageIcon("bigsmile.jpg");
+		cool = new ImageIcon("cool.jpg");
+		nerd = new ImageIcon("nerd.jpg");
+		ohh = new ImageIcon("ohhh.jpg");
+		strich = new ImageIcon("strich.jpg");
+		zunge = new ImageIcon("zunge.jpg");
+		zwinker = new ImageIcon("zwinker.jpg");
+
 		guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		guiFrame.setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -99,6 +123,19 @@ public class ChatServer extends Observable implements ActionListener {
 		editorPane = new JEditorPane();
 		editorPane.setEditable(false);
 		editorPane.setVisible(true);
+
+		kit = new HTMLEditorKit();
+		editorPane.setEditorKit(kit);
+
+		// add some styles to the html
+		styleSheet = kit.getStyleSheet();
+		styleSheet.addRule("body {color:#000; font-family:times; margin: 4px; }");
+		styleSheet.addRule("h1 {color: blue;}");
+		styleSheet.addRule("h2 {color: #ff0000;}");
+		styleSheet.addRule("pre {font : 10px monaco; color : black; background-color : #fafafa; }");
+		doc = kit.createDefaultDocument();
+		editorPane.setDocument(doc);
+		// editorPane.setContentType("text/html");
 
 		JScrollPane scrollPane = new JScrollPane(editorPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		panel.add(scrollPane, BorderLayout.CENTER);

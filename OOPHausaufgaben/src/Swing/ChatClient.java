@@ -25,16 +25,16 @@ import javax.swing.text.html.StyleSheet;
 @SuppressWarnings("serial")
 public class ChatClient extends JFrame implements Observer {
 
-	private JPanel		contentPane;
-	private JTextPane	text;
-	JEditorPane			textPane;
-	Document			doc;
-	StyleSheet			styleSheet;
-	HTMLEditorKit		kit;
-	JScrollPane			scrollPane;
-	private String		user;
-	private Color		rgb;
-	private ChatServer	server;
+	private JPanel			contentPane;
+	private JTextPane		text;
+	private JEditorPane		textPane;
+	private Document		doc;
+	private StyleSheet		styleSheet;
+	private HTMLEditorKit	kit;
+	private JScrollPane		scrollPane;
+	private String			user;
+	private Color			rgb;
+	private ChatServer		server;
 
 	/**
 	 * Create the frame.

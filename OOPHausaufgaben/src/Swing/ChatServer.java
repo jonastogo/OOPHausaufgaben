@@ -41,9 +41,9 @@ public class ChatServer extends Observable implements ActionListener {
 	private JToggleButton			black;
 	private JButton					addUser;
 	private ArrayList<ChatClient>	clients;
-	Document						doc;
-	StyleSheet						styleSheet;
-	HTMLEditorKit					kit;
+	private Document				doc;
+	private StyleSheet				styleSheet;
+	private HTMLEditorKit			kit;
 	private JToggleButton[]			tbtn;
 
 	/**

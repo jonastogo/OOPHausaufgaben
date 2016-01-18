@@ -290,6 +290,8 @@ public class ChatServer extends Observable implements ActionListener {
 		Observer cc = new ChatClient("ChatClient", txtUsername.getText(), c, this);
 		clients.add((ChatClient) cc);
 		this.addObserver(cc);
+		if (clients.size() >= 2)
+			updateChat(editorPane.getText());
 	}
 
 	public void printList() {

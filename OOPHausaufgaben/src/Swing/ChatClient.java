@@ -152,6 +152,7 @@ public class ChatClient extends JFrame implements Observer {
 		text = text.replace("8|", "<img src=\"file:res/nerd.jpg\" alt=\"eine grafik\"></img>");
 		text = text.replace(":D", "<img src=\"file:res/bigsmile.jpg\" alt=\"eine grafik\"></img>");
 		text = text.replace(":|", "<img src=\"file:res/strich.jpg\" alt=\"eine grafik\"></img>");
+		text = text.replace(":3", "<img src=\"file:res/herz.png\" alt=\"eine grafik\" width=\"20\" height=\"20\"></img>");
 		textPane.setText(text);
 	}
 }

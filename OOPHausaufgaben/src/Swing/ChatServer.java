@@ -300,11 +300,11 @@ public class ChatServer extends Observable implements ActionListener {
 		System.out.println("_______________");
 	}
 
-	protected JEditorPane getEditorPane() {
+	public JEditorPane getEditorPane() {
 		return editorPane;
 	}
 
-	protected void setEditorPane(JEditorPane editorPane) {
+	public void setEditorPane(JEditorPane editorPane) {
 		this.editorPane = editorPane;
 	}
 

@@ -10,7 +10,6 @@ import java.awt.event.WindowListener;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
@@ -23,6 +22,7 @@ import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 
+@SuppressWarnings("serial")
 public class ChatClient extends JFrame implements Observer {
 
 	private JPanel		contentPane;
@@ -35,11 +35,6 @@ public class ChatClient extends JFrame implements Observer {
 	private String		user;
 	private Color		rgb;
 	private ChatServer	server;
-	private ImageIcon	smile, sad, angry, cry, bsmile, cool, nerd, ohh, strich, zunge, zwinker;
-	final String		SMILE		= ":)", SAD = ":(", ANGRY = ":@", CRY = ";(", BSMILE = ":D", COOL = "8)", NERD = ":8", OHH = ":O", STRICH = ":|", ZUNGE = ":P", ZWINKER = ";)";
-	private String[]	emoticons	= {
-			SMILE, SAD, ANGRY, CRY, BSMILE, COOL, NERD, OHH, STRICH, ZUNGE, ZWINKER
-									};
 
 	/**
 	 * Create the frame.
@@ -68,7 +63,6 @@ public class ChatClient extends JFrame implements Observer {
 		kit = new HTMLEditorKit();
 		textPane.setEditorKit(kit);
 
-		// add some styles to the html
 		styleSheet = kit.getStyleSheet();
 		styleSheet.addRule("body {color:#000; font-family:times; margin: 4px; }");
 		styleSheet.addRule("h1 {color: blue;}");
@@ -77,11 +71,6 @@ public class ChatClient extends JFrame implements Observer {
 		styleSheet.addRule("pre {font : 10px monaco; color : black; background-color : #fafafa; }");
 		doc = kit.createDefaultDocument();
 		textPane.setDocument(doc);
-		//
-		// String imgsrc = "file:res/sad.jpg";
-		//
-		// String htmlString = "<html>&#1F601;</html>";
-		// textPane.setText(htmlString);
 
 		scrollPane = new JScrollPane(textPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		panel.add(scrollPane, BorderLayout.CENTER);

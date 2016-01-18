@@ -53,8 +53,9 @@ public class ChatServer extends Observable implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ChatServer frame = new ChatServer("ChatServer");
+					new ChatServer("ChatServer");
 				} catch (Exception e) {
+
 					e.printStackTrace();
 				}
 			}
@@ -66,7 +67,9 @@ public class ChatServer extends Observable implements ActionListener {
 	 */
 	public ChatServer(String title) {
 		JFrame guiFrame = new JFrame(title);
+
 		clients = new ArrayList<ChatClient>();
+
 		tbtn = new JToggleButton[10];
 		red = new JToggleButton("");
 		tbtn[0] = red;
@@ -91,6 +94,7 @@ public class ChatServer extends Observable implements ActionListener {
 
 		guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		guiFrame.setBounds(100, 100, 450, 300);
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		guiFrame.setContentPane(contentPane);
@@ -109,15 +113,14 @@ public class ChatServer extends Observable implements ActionListener {
 		kit = new HTMLEditorKit();
 		editorPane.setEditorKit(kit);
 
-		// add some styles to the html
 		styleSheet = kit.getStyleSheet();
 		styleSheet.addRule("body {color:#000; font-family:times; margin: 4px; }");
 		styleSheet.addRule("h1 {color: blue;}");
 		styleSheet.addRule("h2 {color: #ff0000;}");
 		styleSheet.addRule("pre {font : 10px monaco; color : black; background-color : #fafafa; }");
+
 		doc = kit.createDefaultDocument();
 		editorPane.setDocument(doc);
-		// editorPane.setContentType("text/html");
 
 		JScrollPane scrollPane = new JScrollPane(editorPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		panel.add(scrollPane, BorderLayout.CENTER);

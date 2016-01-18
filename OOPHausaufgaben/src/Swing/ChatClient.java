@@ -103,10 +103,6 @@ public class ChatClient extends JFrame implements Observer {
 				String newText = text.getText();
 				String test = textPaneText.replace("</p>", "<span style=\"color: #" + Integer.toHexString(rgb.getRGB()).substring(2) + ";\">" + username + "</span>: " + newText + "<br></p>");
 				server.updateChat(test);
-				// textPane.setText("<html>" + text + "</html>");
-				// textPane.repaint();
-				// System.out.println(text);
-				// System.out.println("2ASFJBKVDSAFGKAEROILFJDGVBOJLKASDFHIOLLBHUIOADLFRGOHLIUASDFOIHULG " + text);
 			}
 		});
 

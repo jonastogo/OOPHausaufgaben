@@ -6,9 +6,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class KfZ {
-	static Map<String, String>	kfz	= new HashMap<String, String>();
+	private Map<String, String>	kfz	= new HashMap<String, String>();
 
 	public static void main(String[] args) {
+
+		KfZ kfz = new KfZ();
+	}
+
+	public KfZ() {
 		addLandkreis("BI", "Bielefeld");
 		addLandkreis("HF", "Herford");
 		addLandkreis("MI", "Minden");
@@ -24,7 +29,7 @@ public class KfZ {
 		print();
 	}
 
-	public static String sucheKFZKuerzel(String kuerzel) {
+	public String sucheKFZKuerzel(String kuerzel) {
 		Set set = kfz.entrySet();
 		Iterator it = set.iterator();
 		while (it.hasNext()) {
@@ -35,7 +40,7 @@ public class KfZ {
 		return null;
 	}
 
-	public static String sucheLandkreis(String landkreis) {
+	public String sucheLandkreis(String landkreis) {
 		Set set = kfz.entrySet();
 		Iterator it = set.iterator();
 		while (it.hasNext()) {
@@ -46,7 +51,7 @@ public class KfZ {
 		return null;
 	}
 
-	public static void print() {
+	public void print() {
 		Set set = kfz.entrySet();
 		Iterator it = set.iterator();
 		System.out.println("\nAusgabe der Hashmap");
@@ -57,7 +62,7 @@ public class KfZ {
 		}
 	}
 
-	public static void addLandkreis(String kuerzel, String landkreis) {
+	public void addLandkreis(String kuerzel, String landkreis) {
 		if (sucheLandkreis(landkreis) == null && sucheKFZKuerzel(kuerzel) == null) {
 			kfz.put(kuerzel, landkreis);
 			System.out.println("Hinzugefuegt wurde: Key: " + kuerzel + " & Value: " + landkreis);
@@ -66,7 +71,7 @@ public class KfZ {
 
 	}
 
-	public static void removeLandkreis(String landkreis) {
+	public void removeLandkreis(String landkreis) {
 		String gesucht = sucheLandkreis(landkreis);
 		if (gesucht != null) {
 			for (String key : kfz.keySet()) {
